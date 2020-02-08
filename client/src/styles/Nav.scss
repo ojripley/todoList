@@ -1,0 +1,31 @@
+#nav {
+  background-color: blanchedalmond;
+  display: flex;
+  justify-content: space-between;
+  height: 5vh;
+  width: 100vw;
+  padding-top: 15px;
+  margin-bottom: 2em;
+
+  #nav-title{
+    color: grey;
+    margin-left: 2em;
+    font-size: larger;
+    font-style: italic;
+  }
+
+  #nav-buttons{
+    display: flex;
+    align-content: space-around;
+    margin-right: 2em;
+
+    #new-todo-button{
+      color: grey;
+    }
+
+    #new-todo-button:hover{
+      color: coral;
+      cursor: pointer;
+    }
+  }
+}
