@@ -5,15 +5,25 @@ import '../styles/Nav.scss';
 export default function Nav(props) {
 
   const handleNewToDo = () => {
+    const id = props.toDoCount + 1;
+    props.setToDoCount(props.toDoCount + 1);
+
     const newToDo = {
-      id: 0,
+      id: id,
       title: '',
       description: '',
+      status: 'Pending',
       due: '',
       tags: []
     };
 
-    props.setToDos(prev => [...prev, newToDo]);
+    const tempToDos = props.toDos;
+
+    console.log(tempToDos);
+
+    tempToDos[id] = newToDo;
+
+    props.setToDos({...tempToDos});
   }
 
   return(

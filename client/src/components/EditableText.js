@@ -3,12 +3,13 @@ import TextField from "@material-ui/core/TextField";
 
 export default function EditableText(props) {
 
-  const [text, setText] = useState(props.text || '');
+  const [text, setText] = useState(props.text || props.defaultText);
   const [editMode, setEditMode] = useState(false);
   const [mouseOver, setMouseOver] = useState(false);
 
   const handleChange = event => {
     setText(event.target.value);
+    props.setValue(event.target.value);
   };
 
   const handleMouseEnter= () => {
@@ -45,7 +46,6 @@ export default function EditableText(props) {
       }
     }
   };
-
 
   return (
     <div
