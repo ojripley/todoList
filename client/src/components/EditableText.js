@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
-import Edit from "@material-ui/icons/Edit";
-import IconButton from "@material-ui/core/IconButton";
 
 export default function EditableText(props) {
 
-  const [text, setText] = useState('test');
+  const [text, setText] = useState(props.text || '');
   const [editMode, setEditMode] = useState(false);
   const [mouseOver, setMouseOver] = useState(false);
 
@@ -17,13 +15,20 @@ export default function EditableText(props) {
     if (!mouseOver) {
       setMouseOver(true);
     }
+    if (text === props.defaultText) {
+      setText('');
+    }
+    setEditMode(true);
   };
 
   const handleMouseOut = () => {
     if (mouseOver) {
       setMouseOver(false);
+      setEditMode(false);
+      if (text.length === 0) {
+        setText(props.defaultText);
+      }
     }
-    setEditMode(false);
   };
 
   const handleClick = () => {
@@ -35,8 +40,11 @@ export default function EditableText(props) {
     if (event.charCode === 13) {
       setMouseOver(false);
       setEditMode(false);
+      if(text.length === 0) {
+        setText(props.defaultText);
+      }
     }
-  }
+  };
 
 
   return (
@@ -44,7 +52,7 @@ export default function EditableText(props) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseOut}>
       <TextField
-        name="text"
+        value={text}
         defaultValue={props.defaultText}
         margin="normal"
         onChange={handleChange}
@@ -52,9 +60,6 @@ export default function EditableText(props) {
         onKeyPress={handleKeyPress}
         onClick={handleClick}
       />
-      {mouseOver && <IconButton onClick={handleClick}>
-        <Edit />
-      </IconButton>}
     </div>
   );
-}
+};

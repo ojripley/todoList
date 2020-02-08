@@ -1,0 +1,31 @@
+#app{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: 1;
+  align-items: center;
+
+  .todo{
+    background-color: blanchedalmond;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px grey;
+    padding: 0.5em;
+    margin: 2em;
+
+    .todo-title{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; 
+    }
+    
+    .todo-description{
+      display: flex;
+      flex-direction: row;
+
+    }
+  }
+}
+
+.todo-field-label{
+  padding-top: 20px;
+  margin-right: 15px;
+}
