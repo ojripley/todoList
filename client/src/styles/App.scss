@@ -46,6 +46,26 @@
     .todo-status-button:hover{
       cursor: pointer;
     }
+
+  }
+
+  .todo-options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1em;
+
+    .todo-delete{
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 5px;
+      border-color: red;
+      padding: 5px;
+    }
+
+    .todo-delete:hover{
+      cursor: pointer;
+    }
   }
 }
 

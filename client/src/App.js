@@ -28,18 +28,32 @@ function App() {
     }
   };
 
-  const [categories, setCategories] = useState([{title: 'cleaning'}, {title: 'work'}]);
-
   const [toDos, setToDos] = useState(placeHolderToDos);
   const [toDoCount, setToDoCount] = useState(Object.keys(toDos).length);
+  const [filter, setFilter] = useState('All');
 
   const toDoComponents = Object.keys(toDos).map(key => {
-    // console.log(todo.id);
-    return <Todo
-      title={toDos[key].title}
-      description={toDos[key].description}
-      status={toDos[key].status}
+    if (filter === 'All') {
+      return <Todo
+        id={toDos[key].id}
+        title={toDos[key].title}
+        description={toDos[key].description}
+        status={toDos[key].status}
+        toDos={toDos}
+        setToDos={setToDos}
+        ></Todo>;
+    } else if (toDos[key].status === filter) {
+      return <Todo
+        id={toDos[key].id}
+        title={toDos[key].title}
+        description={toDos[key].description}
+        status={toDos[key].status}
+        toDos={toDos}
+        setToDos={setToDos}
       ></Todo>;
+    } else {
+      return null;
+    }
   });
 
   useEffect(() => {
@@ -49,7 +63,7 @@ function App() {
 
   return (
     <>
-      <Nav setToDos={setToDos} toDos={toDos} toDoCount={toDoCount} setToDoCount={setToDoCount}></Nav>
+      <Nav setToDos={setToDos} toDos={toDos} toDoCount={toDoCount} setToDoCount={setToDoCount} filter={filter} setFilter={setFilter}></Nav>
       <div id={'app'}>
         {toDoComponents}
       </div>
