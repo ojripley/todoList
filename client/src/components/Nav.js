@@ -3,7 +3,7 @@ import React from 'react';
 export default function Nav(props) {
 
   return(
-    <div className={'nav'}>
+    <div id={'nav'}>
       <text>toDoToDay</text>
     </div>
   );
