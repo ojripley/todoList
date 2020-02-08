@@ -18,18 +18,21 @@ export default function Nav(props) {
     };
 
     const tempToDos = props.toDos;
-
-    console.log(tempToDos);
-
     tempToDos[id] = newToDo;
-
     props.setToDos({...tempToDos});
   }
 
   return(
     <div id={'nav'}>
       <text id={'nav-title'}>toDoToDay</text>
-      <div id={'nav-buttons'}>
+      <div id={'nav-controls'}>
+        <text id={'filter-toggle-text'}>Showing:</text>
+        <span id={'filter-toggle'}>
+          <text className={'filter-button'} id={props.filter === 'All' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('All')}>All</text>
+          <text className={'filter-button'} id={props.filter === 'Pending' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('Pending')}>Pending</text>
+          <text className={'filter-button'} id={props.filter === 'In Progress' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('In Progress')}>In Progress</text>
+          <text className={'filter-button'} id={props.filter === 'Complete' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('Complete')}>Complete</text>
+        </span>
         <text id={'new-todo-button'} onClick={handleNewToDo}>+ New Todo</text>
       </div>
     </div>
