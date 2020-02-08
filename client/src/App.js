@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Nav from './components/Nav';
 import Category from './components/Category';
+import EditableText from './components/EditableText';
 
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
       <div id={'app'}>
         {categoryComponents}
       </div>
+      <EditableText defaultText={'entersomestuff'}></EditableText>
     </>
   );
 }
