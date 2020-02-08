@@ -24,9 +24,9 @@ export default function Nav(props) {
 
   return(
     <div id={'nav'}>
-      <text id={'nav-title'}>toDoToDay</text>
+      <p id={'nav-title'}>toDoToDay</p>
       <div id={'nav-controls'}>
-        <text id={'filter-toggle-text'}>Showing:</text>
+        <p id={'filter-toggle-text'}>Showing:</p>
         <span id={'filter-toggle'}>
           <text className={'filter-button'} id={props.filter === 'All' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('All')}>All</text>
           <text className={'filter-button'} id={props.filter === 'Pending' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('Pending')}>Pending</text>

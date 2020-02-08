@@ -53,7 +53,6 @@ export default function EditableText(props) {
       onMouseLeave={handleMouseOut}>
       <TextField
         value={text}
-        defaultValue={props.defaultText}
         margin="normal"
         onChange={handleChange}
         disabled={!editMode}

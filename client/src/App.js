@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Nav from './components/Nav';
-import Category from './components/Category';
 import Todo from './components/Todo';
-import EditableText from './components/EditableText';
 
 import './styles/App.scss';
 
@@ -14,7 +12,7 @@ function App() {
       id: 1,
       title: 'NorthOne assessment',
       description: 'Write a ToDo list webapp!',
-      due: 'placeholder',
+      due: new Date(),
       status: 'In Progress',
       tags: ['programming']
     },
@@ -22,7 +20,7 @@ function App() {
       id: 2,
       title: 'Clean Kitchen',
       description: 'Don\'t for get to do the dishes',
-      due: 'placeholder',
+      due: new Date(),
       status: 'Pending',
       tags: ['household']
     }
@@ -35,19 +33,23 @@ function App() {
   const toDoComponents = Object.keys(toDos).map(key => {
     if (filter === 'All') {
       return <Todo
+        key={toDos[key].id}
         id={toDos[key].id}
         title={toDos[key].title}
         description={toDos[key].description}
         status={toDos[key].status}
+        tags={toDos[key].tags}
         toDos={toDos}
         setToDos={setToDos}
         ></Todo>;
     } else if (toDos[key].status === filter) {
       return <Todo
+        key={toDos[key].id}
         id={toDos[key].id}
         title={toDos[key].title}
         description={toDos[key].description}
         status={toDos[key].status}
+        tags={toDos[key].tags}
         toDos={toDos}
         setToDos={setToDos}
       ></Todo>;
@@ -55,11 +57,6 @@ function App() {
       return null;
     }
   });
-
-  useEffect(() => {
-    console.log(toDoComponents);
-    console.log(toDoCount);
-  }, [toDos]);
 
   return (
     <>
