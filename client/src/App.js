@@ -57,35 +57,45 @@ function App() {
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
 
+  const matchesSearchTerm = function(todo) {
+    if(todo.title.toLowerCase().includes(searchTerm.toLowerCase()) || todo.description.toLowerCase.includes(searchTerm.toLowerCase())) {
+      return true;
+    };
+    return false;
+  };
+
   const toDoComponents = Object.keys(toDos).map(key => {
-    console.log(toDos[key].notes);
     if (filter === 'all') {
-      return <Todo
-        key={toDos[key].id}
-        id={toDos[key].id}
-        title={toDos[key].title}
-        description={toDos[key].description}
-        status={toDos[key].status}
-        tags={toDos[key].tags}
-        toDos={toDos}
-        setToDos={setToDos}
-        notes={toDos[key].notes}
-      ></Todo>;
+      if(matchesSearchTerm(toDos[key])) {
+        return <Todo
+          key={toDos[key].id}
+          id={toDos[key].id}
+          title={toDos[key].title}
+          description={toDos[key].description}
+          status={toDos[key].status}
+          tags={toDos[key].tags}
+          toDos={toDos}
+          setToDos={setToDos}
+          notes={toDos[key].notes}
+        ></Todo>;
+      }
     } else if (toDos[key].status === filter) {
-      return <Todo
-        key={toDos[key].id}
-        id={toDos[key].id}
-        title={toDos[key].title}
-        description={toDos[key].description}
-        status={toDos[key].status}
-        tags={toDos[key].tags}
-        toDos={toDos}
-        setToDos={setToDos}
-        notes={toDos[key].notes}
-      ></Todo>;
-    } else {
-      return;
+      if(matchesSearchTerm(toDos[key])) {
+        return <Todo
+          key={toDos[key].id}
+          id={toDos[key].id}
+          title={toDos[key].title}
+          description={toDos[key].description}
+          status={toDos[key].status}
+          tags={toDos[key].tags}
+          toDos={toDos}
+          setToDos={setToDos}
+          notes={toDos[key].notes}
+        ></Todo>;
+      }
     }
+
+    return null;
   });
 
   return (

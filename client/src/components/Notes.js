@@ -18,7 +18,6 @@ export default function Notes(props) {
     
     tempNotes[noteCount + 1] = '';
     setNoteCount(noteCount + 1);
-    console.log(tempNotes);
 
     props.setNotes({...tempNotes});
   }

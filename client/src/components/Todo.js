@@ -22,7 +22,6 @@ export default function ToDo(props) {
   const [selectedDate, handleDateChange] = useState(props.due || new Date());
 
   useEffect(() => {
-    console.log('ohh the times they are a changin');
     const tempToDos = props.toDos;
 
     tempToDos[id] = {
