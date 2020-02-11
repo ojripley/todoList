@@ -47,7 +47,7 @@ export default function EditableText(props) {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseOut}>
-      <FormControl fullWidth style={{width: '33em'}}>
+      <FormControl fullWidth style={{width: props.width}}>
         <TextField
           value={text}
           margin="normal"
@@ -55,7 +55,7 @@ export default function EditableText(props) {
           onKeyPress={handleKeyPress}
           onClick={handleClick}
           disabled={text === props.defaultText ? true : false}
-          multiline
+          multiline={props.multiline}
         />
       </FormControl>
     </div>
