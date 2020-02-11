@@ -1,41 +1,52 @@
 #nav {
   background-color: #1c4060;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 5vh;
+  height: 6em;
   width: 100vw;
   margin-bottom: 2em;
-  padding: 10px;
-
+  
   #nav-title{
-    color: grey;
-    margin-left: 0.5em;
-    font-size: larger;
-    font-style: italic;
+    color: white;
+    font-size: 17pt;
+    font-style: italic; 
+    margin: 0;
+    margin-left: 2em;
+    padding-top: 10px;
   }
 
+  #nav-line-break{
+    height: 0.25vh;
+    width: 94%;
+    background-color: grey;
+    margin-left: 3%;
+  }
+  
   #nav-controls{
     display: flex;
-    align-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin-right: 2em;
     color: white;
+    margin-left: 40em;
+    margin-right: 2em;
 
     #filter-toggle{
+      display: flex;
+      align-items: center;
+    }
+
+    #filter-toggle-options{
       margin-right: 3em;
       margin-left: 1em;
       display: flex;
+      height: 80%;
       justify-content: space-between;
       background-color: white;
-      margin-top: 7px;
-      margin-bottom: 7px;
-      border-radius: 10px;
+      border-top-left-radius: 15px;
+      border-bottom-right-radius: 15px;
 
       #selected{
         background-color: coral;
         padding: 7px;
-        border-radius: 10px;
+        border-radius: inherit;
         color: white;
       }
 
