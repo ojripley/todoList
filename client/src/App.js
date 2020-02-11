@@ -13,25 +13,53 @@ function App() {
       title: 'NorthOne assessment',
       description: 'Write a ToDo list webapp!',
       due: new Date(),
-      status: 'In Progress',
-      tags: ['programming', 'job hunt']
+      status: 'complete',
+      tags: ['programming', 'job hunt'],
+      notes: {}
     },
     2: {
       id: 2,
-      title: 'Clean Kitchen',
+      title: 'NorthOne assessment demo',
+      description: 'Present your NorthOne assessment to Kristen',
+      due: new Date(),
+      status: 'pending',
+      tags: ['job hunt'],
+      notes: {
+        1: 'Call is at 1pm, this Wednesday'
+      }
+    },
+    3: {
+      id: 3,
+      title: 'Clean kitchen',
       description: 'Don\'t forget to do the dishes!',
       due: new Date(),
-      status: 'Pending',
-      tags: ['household']
+      status: 'pending',
+      tags: ['household'],
+      notes: {}
+    },
+    4: {
+      id: 4,
+      title: 'Get groceries',
+      description: 'Sobeys has a sale today',
+      due: new Date(),
+      status: 'pending',
+      tags: ['household'],
+      notes: {
+        1: 'bread',
+        2: 'bananas',
+        3: 'eggs'
+      }
     }
   };
 
   const [toDos, setToDos] = useState(placeHolderToDos);
   const [toDoCount, setToDoCount] = useState(Object.keys(toDos).length);
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const toDoComponents = Object.keys(toDos).map(key => {
-    if (filter === 'All') {
+    console.log(toDos[key].notes);
+    if (filter === 'all') {
       return <Todo
         key={toDos[key].id}
         id={toDos[key].id}
@@ -41,7 +69,8 @@ function App() {
         tags={toDos[key].tags}
         toDos={toDos}
         setToDos={setToDos}
-        ></Todo>;
+        notes={toDos[key].notes}
+      ></Todo>;
     } else if (toDos[key].status === filter) {
       return <Todo
         key={toDos[key].id}
@@ -52,17 +81,20 @@ function App() {
         tags={toDos[key].tags}
         toDos={toDos}
         setToDos={setToDos}
+        notes={toDos[key].notes}
       ></Todo>;
     } else {
-      return null;
+      return;
     }
   });
 
   return (
     <>
-      <Nav setToDos={setToDos} toDos={toDos} toDoCount={toDoCount} setToDoCount={setToDoCount} filter={filter} setFilter={setFilter}></Nav>
+      <Nav setToDos={setToDos} toDos={toDos} toDoCount={toDoCount} setToDoCount={setToDoCount} filter={filter} setFilter={setFilter} searchTerm={searchTerm} setSearchTerm={setSearchTerm}></Nav>
       <div id={'app'}>
-        {toDoComponents}
+        <div id={'todo-container'}>
+          {toDoComponents.length === 0? <p className={'unmatched-filter-notice'}>You have no tasks that meet this filter!</p> : toDoComponents}
+        </div>
       </div>
     </>
   );

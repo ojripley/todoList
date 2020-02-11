@@ -1,25 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import EditableText from './EditableText';
+import Note from './Note';
 
 export default function Notes(props) {
 
-  const [displayNewNote, setDisplayNewNote] = useState(false);
+  const [noteCount, setNoteCount] = useState(Object.keys(props.notes).length);
+
+  useEffect(() => {
+    const tempNotes = props.notes;
+
+    console.log(tempNotes);
+
+  }, [props.notes]);
 
   const handleNewNote = () => {
-    setDisplayNewNote(true);
+    const tempNotes = props.notes;
+    
+    tempNotes[noteCount + 1] = '';
+    setNoteCount(noteCount + 1);
+    console.log(tempNotes);
+
+    props.setNotes({...tempNotes});
   }
 
-  // const noteComponents = props.notes.map(note => {
-  //   return(
-  //     <p>lol</p>
-  //   );
-  // });
+  const noteComponents = Object.keys(props.notes).map(noteId => {
+    return(
+      <div className={'note'}>
+        <p className={'note-bullet'}> - </p>
+        <Note note={props.notes[noteId]} noteId={noteId} setNotes={props.setNotes} notes={props.notes}></Note>
+      </div>
+    );
+  });
 
   return(
     <div className={'todo-notes'}>
-      <p className={'new-note-button'} onClick={handleNewNote}>Add a new note + </p>
-      {displayNewNote && <EditableText></EditableText>}
+      <div className={'notes-header'}>
+        <p className={'notes-title'}>Notes:</p>
+        <p className={'new-note-button'} onClick={handleNewNote}>+ New Note</p>
+      </div>
+      <div className={'notes-container'}>
+        {noteComponents}
+      </div>
     </div>
   );
 };

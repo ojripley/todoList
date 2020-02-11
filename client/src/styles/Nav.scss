@@ -2,7 +2,8 @@
   background-color: #1c4060;
   height: 6em;
   width: 100vw;
-  margin-bottom: 2em;
+  position: fixed;
+  z-index: 2;
   
   #nav-title{
     color: white;
@@ -25,8 +26,21 @@
     justify-content: space-between;
     align-items: center;
     color: white;
-    margin-left: 40em;
+    margin-left: 2em;
     margin-right: 2em;
+
+    #search{
+      display: flex;
+      align-items: center;
+
+      #search-box-container{
+        margin-right: 3em;
+        margin-left: 1em;
+        background-color: white;
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+      }
+    }
 
     #filter-toggle{
       display: flex;
@@ -37,7 +51,6 @@
       margin-right: 3em;
       margin-left: 1em;
       display: flex;
-      height: 80%;
       justify-content: space-between;
       background-color: white;
       border-top-left-radius: 15px;
@@ -45,13 +58,13 @@
 
       #selected{
         background-color: coral;
-        padding: 7px;
+        padding: 10px;
         border-radius: inherit;
         color: white;
       }
 
       #not-selected{
-        padding: 7px;
+        padding: 10px;
         color: black;
       }
 

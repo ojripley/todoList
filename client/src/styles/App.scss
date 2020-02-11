@@ -1,114 +1,152 @@
 #app{
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   flex-wrap: 1;
   align-items: center;
+  overflow: -moz-scrollbars-none;
+  
+  #todo-container{
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: 1;
+    align-items: center;
+    margin-top: 8em;
 
-  .todo{
-    background-color: #1c4060;
-    border-radius: 15px;
-    box-shadow: 10px 10px 10px grey;
-    padding: 1em;
-    margin: 0.7em;
-    width: 40em;
-
-    .todo-title{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between; 
-      background-color: white;
-      border-top-left-radius: 15px;
-      padding-left: 15px;
-    }
+    .todo{
+      background-color: #1c4060;
+      border-radius: 15px;
+      box-shadow: 10px 10px 10px grey;
+      padding: 1em;
+      padding-bottom: 0.5em;
+      margin: 0.7em;
+      width: 40em;
+  
+      .todo-title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        background-color: white;
+        border-top-left-radius: 15px;
+        padding-left: 15px;
+      }
+      
+      .todo-description{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        background-color: white;
+        border-bottom-right-radius: 15px;
+        padding-left: 15px;
+      }
+      
+      .todo-notes{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        margin-top: 10px;
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+  
+        .notes-header{
+          display: flex;
+          padding-left: 10px;
+          padding-right: 10px;
+          justify-content: space-between;
+          align-items: center;
+  
+          .new-note-button{
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 5px;
+            border-color: green;
+            padding: 5px;
+            width: 5.5em;
+          }
     
-    .todo-description{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between; 
-      background-color: white;
-      border-bottom-right-radius: 15px;
-      padding-left: 15px;
+          .new-note-button:hover{
+            cursor: pointer;
+            background-color: green;
+            color: white;
+          }
+        }
+  
+        .notes-container{
+          display: flex;
+          flex-direction: column-reverse;
+        }
+  
+        .note{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-right: 50px;
+          padding-left: 50px;
+  
+          .note-bullet{
+            font-weight: bold;
+          }
+        }
+  
+      }
     }
-    
-    .todo-notes{
+  
+    .todo-options{
       display: flex;
-      flex-direction: column;
-      background-color: white;
-      // padding: 5px;
-      margin-top: 10px;
-      border-top-left-radius: 15px;
-      border-bottom-right-radius: 15px;
-
-      .new-note-button{
-        margin-left: 30em;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2px;
+  
+      .time-picker-container{
+        background-color: white;
+        padding: 5px;
+        padding-left: 15px;
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+      }
+  
+      .todo-status{
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+  
+        #selected{
+          background-color: coral;
+          padding: 10px;
+          border-radius: inherit;
+          color: white;
+        }
+  
+        #not-selected{
+          padding: 10px;
+        }
+      }
+      .todo-status-button:hover{
+        cursor: pointer;
+      }
+  
+      .todo-delete{
         border-style: solid;
         border-width: 2px;
         border-radius: 5px;
-        border-color: green;
+        border-color: red;
         padding: 5px;
-        width: 7.9em;
+        color: white;
       }
-
-      .new-note-button:hover{
+  
+      .todo-delete:hover{
         cursor: pointer;
-        background-color: green;
-        color: white;
+        background-color: red;
       }
     }
   }
-
-  .todo-options{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2px;
-
-    .time-picker-container{
-      background-color: white;
-      padding: 5px;
-      padding-left: 15px;
-      border-top-left-radius: 15px;
-      border-bottom-right-radius: 15px;
-    }
-
-    .todo-status{
-      display: flex;
-      justify-content: space-between;
-      background-color: white;
-      border-top-left-radius: 15px;
-      border-bottom-right-radius: 15px;
-
-      #selected{
-        background-color: coral;
-        padding: 10px;
-        border-radius: inherit;
-        color: white;
-      }
-
-      #not-selected{
-        padding: 10px;
-      }
-    }
-    .todo-status-button:hover{
-      cursor: pointer;
-    }
-
-    .todo-delete{
-      border-style: solid;
-      border-width: 2px;
-      border-radius: 5px;
-      border-color: red;
-      padding: 5px;
-      color: white;
-    }
-
-    .todo-delete:hover{
-      cursor: pointer;
-      background-color: red;
-    }
+  
+  .todo-field-label{
+    padding-top: 21px;
   }
-}
-
-.todo-field-label{
-  padding-top: 21px;
-}
+  
+  .unmatched-filter-notice{
+    color: black;
+  }
+  }

@@ -18,9 +18,11 @@ export default function ToDo(props) {
   const [description, setDescription] = useState(props.description || '');
   const [status, setStatus] = useState(props.status);
   const [tags, setTags] = useState(props.tags);
+  const [notes, setNotes] = useState(props.notes || []);
   const [selectedDate, handleDateChange] = useState(props.due || new Date());
 
   useEffect(() => {
+    console.log('ohh the times they are a changin');
     const tempToDos = props.toDos;
 
     tempToDos[id] = {
@@ -29,42 +31,43 @@ export default function ToDo(props) {
       description: description,
       due: selectedDate,
       status: status,
-      tags: tags
+      tags: tags,
+      notes: notes
     };
 
-    props.setToDos({...tempToDos});
-  }, [title, description, status, tags, id, selectedDate]);
+    props.setToDos({ ...tempToDos });
+  }, [title, description, status, tags, id, selectedDate, notes, notes.length]);
 
   const handleDelete = () => {
     const tempToDos = props.toDos;
     delete tempToDos[id];
-    props.setToDos({...tempToDos});
+    props.setToDos({ ...tempToDos });
   };
 
-  return(
+  return (
     <div className={'todo'} id={props.id}>
-        <span className={'todo-title'}>
-          <text className={'todo-field-label'}>Task:</text>
-          <EditableText className={'todo-title-text'} text={title} setValue={setTitle} defaultText={'Add a title'}></EditableText>
-        </span>
-        <span className={'todo-description'}>
-          <text className={'todo-field-label'}>Description:</text>
-          <EditableText className={'todo-description-text'} text={description} setValue={setDescription} defaultText={'Add a description'}></EditableText>
-        </span>
-        <Notes></Notes>
-        <span className={'todo-options'}>
-          <div className={'time-picker-container'}>
-            <MuiPickersUtilsProvider className={'timePicker'} utils={DateFnsUtils}>
-              <DateTimePicker value={selectedDate} onChange={handleDateChange} />
-            </MuiPickersUtilsProvider>
-          </div>
+      <span className={'todo-title'}>
+        <text className={'todo-field-label'}>Task:</text>
+        <EditableText className={'todo-title-text'} text={title} setValue={setTitle} defaultText={'Add a title'} width={'33em'}></EditableText>
+      </span>
+      <span className={'todo-description'}>
+        <text className={'todo-field-label'}>Description:</text>
+        <EditableText className={'todo-description-text'} text={description} setValue={setDescription} defaultText={'Add a description'} multiline={true} width={'33em'}></EditableText>
+      </span>
+      <Notes notes={props.notes} setNotes={setNotes}></Notes>
+      <span className={'todo-options'}>
+        <div className={'time-picker-container'}>
+          <MuiPickersUtilsProvider className={'timePicker'} utils={DateFnsUtils}>
+            <DateTimePicker value={selectedDate} onChange={handleDateChange} />
+          </MuiPickersUtilsProvider>
+        </div>
         <span className={'todo-status'}>
-          <text className={'todo-status-button'} id={status === 'Pending' ? 'selected' : 'not-selected'} onClick={() => setStatus('Pending')}>Pending</text>
-          <text className={'todo-status-button'} id={status === 'In Progress' ? 'selected' : 'not-selected'} onClick={() => setStatus('In Progress')}>In Progress</text>
-          <text className={'todo-status-button'} id={status === 'Complete' ? 'selected' : 'not-selected'} onClick={() => setStatus('Complete')}>Complete</text>
+          <text className={'todo-status-button'} id={status === 'pending' ? 'selected' : 'not-selected'} onClick={() => setStatus('pending')}>Pending</text>
+          <text className={'todo-status-button'} id={status === 'in progress' ? 'selected' : 'not-selected'} onClick={() => setStatus('in progress')}>In Progress</text>
+          <text className={'todo-status-button'} id={status === 'complete' ? 'selected' : 'not-selected'} onClick={() => setStatus('complete')}>Complete</text>
         </span>
-          <p className={'todo-delete'} onClick={handleDelete}>Delete</p>
-        </span>
+        <p className={'todo-delete'} onClick={handleDelete}>Delete</p>
+      </span>
     </div>
   );
 };
