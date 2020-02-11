@@ -25,13 +25,16 @@ export default function Nav(props) {
   return(
     <div id={'nav'}>
       <p id={'nav-title'}>toDoToDay</p>
+      <div id={'nav-line-break'}></div>
       <div id={'nav-controls'}>
-        <p id={'filter-toggle-text'}>Showing:</p>
         <span id={'filter-toggle'}>
+        <p id={'filter-toggle-text'}>Showing:</p>
+        <div id={'filter-toggle-options'}>
           <text className={'filter-button'} id={props.filter === 'All' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('All')}>All</text>
           <text className={'filter-button'} id={props.filter === 'Pending' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('Pending')}>Pending</text>
           <text className={'filter-button'} id={props.filter === 'In Progress' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('In Progress')}>In Progress</text>
           <text className={'filter-button'} id={props.filter === 'Complete' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('Complete')}>Complete</text>
+        </div>
         </span>
         <text id={'new-todo-button'} onClick={handleNewToDo}>+ New Todo</text>
       </div>

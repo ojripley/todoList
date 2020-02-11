@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import EditableText from './EditableText';
+import Notes from './Notes';
 
 import '../styles/App.scss';
 
@@ -50,18 +51,19 @@ export default function ToDo(props) {
           <text className={'todo-field-label'}>Description:</text>
           <EditableText className={'todo-description-text'} text={description} setValue={setDescription} defaultText={'Add a description'}></EditableText>
         </span>
-        <span className={'todo-status'}>
-          <text className={'todo-status-button'} id={status === 'Pending' ? 'selected' : 'not-selected'} onClick={() => setStatus('Pending')}>Pending</text>
-          <text className={'todo-status-button'} id={status === 'In Progress' ? 'selected' : 'not-selected'} onClick={() => setStatus('In Progress')}>In Progress</text>
-          <text className={'todo-status-button'} id={status === 'Complete' ? 'selected' : 'not-selected'} onClick={() => setStatus('Complete')}>Complete</text>
-        </span>
+        <Notes></Notes>
         <span className={'todo-options'}>
           <div className={'time-picker-container'}>
             <MuiPickersUtilsProvider className={'timePicker'} utils={DateFnsUtils}>
               <DateTimePicker value={selectedDate} onChange={handleDateChange} />
             </MuiPickersUtilsProvider>
           </div>
-          <text className={'todo-delete'} onClick={handleDelete}>Delete</text>
+        <span className={'todo-status'}>
+          <text className={'todo-status-button'} id={status === 'Pending' ? 'selected' : 'not-selected'} onClick={() => setStatus('Pending')}>Pending</text>
+          <text className={'todo-status-button'} id={status === 'In Progress' ? 'selected' : 'not-selected'} onClick={() => setStatus('In Progress')}>In Progress</text>
+          <text className={'todo-status-button'} id={status === 'Complete' ? 'selected' : 'not-selected'} onClick={() => setStatus('Complete')}>Complete</text>
+        </span>
+          <p className={'todo-delete'} onClick={handleDelete}>Delete</p>
         </span>
     </div>
   );

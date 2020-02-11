@@ -14,7 +14,7 @@ function App() {
       description: 'Write a ToDo list webapp!',
       due: new Date(),
       status: 'In Progress',
-      tags: ['programming']
+      tags: ['programming', 'job hunt']
     },
     2: {
       id: 2,

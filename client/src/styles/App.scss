@@ -7,9 +7,9 @@
   .todo{
     background-color: #1c4060;
     border-radius: 15px;
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 10px 10px 10px grey;
     padding: 1em;
-    margin: 0.5em;
+    margin: 0.7em;
     width: 40em;
 
     .todo-title{
@@ -18,7 +18,7 @@
       justify-content: space-between; 
       background-color: white;
       border-top-left-radius: 15px;
-      padding: 5px;
+      padding-left: 15px;
     }
     
     .todo-description{
@@ -27,48 +27,70 @@
       justify-content: space-between; 
       background-color: white;
       border-bottom-right-radius: 15px;
-      padding: 5px;
+      padding-left: 15px;
     }
-
-    .todo-status{
-      margin-right: 1em;
-      margin-left: 1em;
+    
+    .todo-notes{
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       background-color: white;
-      margin-top: 7px;
-      margin-bottom: 7px;
-      border-radius: 10px;
+      // padding: 5px;
+      margin-top: 10px;
+      border-top-left-radius: 15px;
+      border-bottom-right-radius: 15px;
 
-      #selected{
-        background-color: coral;
-        padding: 7px;
-        border-radius: 10px;
+      .new-note-button{
+        margin-left: 30em;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 5px;
+        border-color: green;
+        padding: 5px;
+        width: 7.9em;
+      }
+
+      .new-note-button:hover{
+        cursor: pointer;
+        background-color: green;
         color: white;
       }
-
-      #not-selected{
-        padding: 7px;
-      }
     }
-
-    .todo-status-button:hover{
-      cursor: pointer;
-    }
-
   }
 
   .todo-options{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1em;
+    margin-top: 2px;
 
     .time-picker-container{
       background-color: white;
       padding: 5px;
-      border-top-left-radius: 7px;
-      border-bottom-right-radius: 7px;
+      padding-left: 15px;
+      border-top-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    .todo-status{
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+      border-top-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+
+      #selected{
+        background-color: coral;
+        padding: 10px;
+        border-radius: inherit;
+        color: white;
+      }
+
+      #not-selected{
+        padding: 10px;
+      }
+    }
+    .todo-status-button:hover{
+      cursor: pointer;
     }
 
     .todo-delete{
@@ -82,11 +104,11 @@
 
     .todo-delete:hover{
       cursor: pointer;
+      background-color: red;
     }
   }
 }
 
 .todo-field-label{
-  padding-top: 20px;
-  margin-right: 15px;
+  padding-top: 21px;
 }
