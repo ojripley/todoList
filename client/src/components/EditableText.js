@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
+import { FormControl } from "@material-ui/core";
 
 export default function EditableText(props) {
 
   const [text, setText] = useState(props.text || props.defaultText);
-  const [editMode, setEditMode] = useState(false);
   const [mouseOver, setMouseOver] = useState(false);
 
   const handleChange = event => {
@@ -19,13 +19,11 @@ export default function EditableText(props) {
     if (text === props.defaultText) {
       setText('');
     }
-    setEditMode(true);
   };
 
   const handleMouseOut = () => {
     if (mouseOver) {
       setMouseOver(false);
-      setEditMode(false);
       if (text.length === 0) {
         setText(props.defaultText);
       }
@@ -33,14 +31,12 @@ export default function EditableText(props) {
   };
 
   const handleClick = () => {
-    setEditMode(true);
     setMouseOver(false);
   };
 
   const handleKeyPress = (event) => {
     if (event.charCode === 13) {
       setMouseOver(false);
-      setEditMode(false);
       if(text.length === 0) {
         setText(props.defaultText);
       }
@@ -51,14 +47,17 @@ export default function EditableText(props) {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseOut}>
-      <TextField
-        value={text}
-        margin="normal"
-        onChange={handleChange}
-        disabled={!editMode}
-        onKeyPress={handleKeyPress}
-        onClick={handleClick}
-      />
+      <FormControl fullWidth style={{width: '33em'}}>
+        <TextField
+          value={text}
+          margin="normal"
+          onChange={handleChange}
+          onKeyPress={handleKeyPress}
+          onClick={handleClick}
+          disabled={text === props.defaultText ? true : false}
+          multiline
+        />
+      </FormControl>
     </div>
   );
 };

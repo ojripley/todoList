@@ -43,7 +43,7 @@ export default function ToDo(props) {
   return(
     <div className={'todo'} id={props.id}>
         <span className={'todo-title'}>
-          <text className={'todo-field-label'}>Title:</text>
+          <text className={'todo-field-label'}>Task:</text>
           <EditableText className={'todo-title-text'} text={title} setValue={setTitle} defaultText={'Add a title'}></EditableText>
         </span>
         <span className={'todo-description'}>
@@ -56,9 +56,11 @@ export default function ToDo(props) {
           <text className={'todo-status-button'} id={status === 'Complete' ? 'selected' : 'not-selected'} onClick={() => setStatus('Complete')}>Complete</text>
         </span>
         <span className={'todo-options'}>
-          <MuiPickersUtilsProvider className={'timePicker'} utils={DateFnsUtils}>
-            <DateTimePicker value={selectedDate} onChange={handleDateChange} />
-          </MuiPickersUtilsProvider>
+          <div className={'time-picker-container'}>
+            <MuiPickersUtilsProvider className={'timePicker'} utils={DateFnsUtils}>
+              <DateTimePicker value={selectedDate} onChange={handleDateChange} />
+            </MuiPickersUtilsProvider>
+          </div>
           <text className={'todo-delete'} onClick={handleDelete}>Delete</text>
         </span>
     </div>

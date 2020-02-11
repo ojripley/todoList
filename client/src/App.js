@@ -19,7 +19,7 @@ function App() {
     2: {
       id: 2,
       title: 'Clean Kitchen',
-      description: 'Don\'t for get to do the dishes',
+      description: 'Don\'t forget to do the dishes!',
       due: new Date(),
       status: 'Pending',
       tags: ['household']
