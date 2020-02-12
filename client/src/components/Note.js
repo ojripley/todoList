@@ -3,7 +3,6 @@ import EditableText from './EditableText';
 
 export default function Note(props) {
 
-  const [noteId, setNoteId] = useState(props.noteId);
   const [noteText, setNoteText] = useState(props.note || '');
 
   useEffect(() => {
@@ -16,7 +15,7 @@ export default function Note(props) {
 
   return (
     <div className={'note'}>
-      <EditableText text={noteText} setValue={setNoteText} width={'32em'}></EditableText>
+      <EditableText text={noteText} setValue={setNoteText} width={'25em'} defaultText={'Add a note...'}></EditableText>
     </div>
   );
 };

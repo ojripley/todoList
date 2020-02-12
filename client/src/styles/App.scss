@@ -4,7 +4,7 @@
   flex-wrap: 1;
   align-items: center;
   overflow: -moz-scrollbars-none;
-  margin-right: 10em;
+  margin-right: 30em;
   
   #todo-container{
     display: flex;
@@ -74,17 +74,32 @@
         .notes-container{
           display: flex;
           flex-direction: column-reverse;
+          padding-bottom: 10px;
         }
   
         .note{
           display: flex;
-          justify-content: space-between;
+          justify-content: space-around;
           align-items: center;
           padding-right: 50px;
           padding-left: 50px;
   
           .note-bullet{
             font-weight: bold;
+          }
+
+          .remove-note-button{
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 5px;
+            border-color: red;
+            padding: 5px;
+          }
+
+          .remove-note-button:hover{
+            cursor: pointer;
+            background-color: red;
+            color: white;
           }
         }
   
@@ -150,4 +165,10 @@
   .unmatched-filter-notice{
     color: black;
   }
+}
+
+@media screen and (min-width: 1600px) {
+  #app{
+    margin-right: 10em;
   }
+}
