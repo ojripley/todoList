@@ -6,12 +6,13 @@ export default function Notes(props) {
 
   const [noteCount, setNoteCount] = useState(Object.keys(props.notes).length);
 
-  useEffect(() => {
-    const tempNotes = props.notes;
+  const handleRemoveNote = (noteId) => {
+    const tempNotes = props.notes
 
-    console.log(tempNotes);
+    delete tempNotes[noteId];
 
-  }, [props.notes]);
+    props.setNotes({...tempNotes});
+  };
 
   const handleNewNote = () => {
     const tempNotes = props.notes;
@@ -24,9 +25,10 @@ export default function Notes(props) {
 
   const noteComponents = Object.keys(props.notes).map(noteId => {
     return(
-      <div className={'note'}>
+      <div className={'note'} key={noteId}>
         <p className={'note-bullet'}> - </p>
         <Note note={props.notes[noteId]} noteId={noteId} setNotes={props.setNotes} notes={props.notes}></Note>
+        <p className={'remove-note-button'} onClick={() => handleRemoveNote(noteId)}>x</p>
       </div>
     );
   });
