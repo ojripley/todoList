@@ -24,8 +24,6 @@ export default function ToDo(props) {
   useEffect(() => {
     const tempToDos = props.toDos;
 
-    console.log('something changed');
-
     tempToDos[id] = {
       id: id,
       title: title,
@@ -35,8 +33,6 @@ export default function ToDo(props) {
       tags: tags,
       notes: notes
     };
-
-    console.log(tempToDos[id].dueDate);
 
     props.setToDos({ ...tempToDos });
   }, [title, description, status, tags, id, selectedDate, notes, notes.length]);
