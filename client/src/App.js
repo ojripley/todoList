@@ -58,7 +58,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const matchesSearchTerm = function(todo) {
-    if(todo.title.toLowerCase().includes(searchTerm.toLowerCase()) || todo.description.toLowerCase.includes(searchTerm.toLowerCase())) {
+    if(todo.title.toLowerCase().includes(searchTerm.toLowerCase()) || todo.description.toLowerCase().includes(searchTerm.toLowerCase())) {
       return true;
     };
     return false;
