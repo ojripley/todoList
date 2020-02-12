@@ -38,13 +38,13 @@ export default function Nav(props) {
         <div id={'filter-toggle'}>
           <p id={'filter-toggle-text'}>Showing:</p>
           <div id={'filter-toggle-options'}>
-            <text className={'filter-button'} id={props.filter === 'all' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('all')}>All</text>
-            <text className={'filter-button'} id={props.filter === 'pending' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('pending')}>Pending</text>
-            <text className={'filter-button'} id={props.filter === 'in progress' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('in progress')}>In Progress</text>
-            <text className={'filter-button'} id={props.filter === 'complete' ? 'selected' : 'not-selected'} onClick={() => props.setFilter('complete')}>Complete</text>
+            <p className={props.filter === 'all' ? 'filter-button-selected' : 'filter-button-not-selected'} onClick={() => props.setFilter('all')}>All</p>
+            <p className={props.filter === 'pending' ? 'filter-button-selected' : 'filter-button-not-selected'} onClick={() => props.setFilter('pending')}>Pending</p>
+            <p className={props.filter === 'in progress' ? 'filter-button-selected' : 'filter-button-not-selected'} onClick={() => props.setFilter('in progress')}>In Progress</p>
+            <p className={props.filter === 'complete' ? 'filter-button-selected' : 'filter-button-not-selected'} onClick={() => props.setFilter('complete')}>Complete</p>
           </div>
         </div>
-        <text id={'new-todo-button'} onClick={handleNewToDo}>+ New Task</text>
+        <p id={'new-todo-button'} onClick={handleNewToDo}>+ New Task</p>
       </div>
     </div>
   );

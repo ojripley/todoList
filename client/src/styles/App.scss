@@ -25,6 +25,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between; 
+        align-items: center;
         background-color: white;
         border-top-left-radius: 15px;
         padding-left: 15px;
@@ -34,6 +35,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between; 
+        align-items: center;
         background-color: white;
         border-bottom-right-radius: 15px;
         padding-left: 15px;
@@ -123,20 +125,28 @@
         background-color: white;
         border-top-left-radius: 15px;
         border-bottom-right-radius: 15px;
+        padding: 0;
   
-        #selected{
+        .todo-status-button-selected{
           background-color: coral;
           padding: 10px;
           border-radius: inherit;
           color: white;
+          margin: 0;
+        }
+
+        .todo-status-button-selected:hover{
+          cursor: pointer;
         }
   
-        #not-selected{
+        .todo-status-button-not-selected{
           padding: 10px;
+          margin: 0;
         }
-      }
-      .todo-status-button:hover{
-        cursor: pointer;
+
+        .todo-status-button-not-selected:hover{
+          cursor: pointer;
+        }
       }
   
       .todo-delete{
@@ -153,10 +163,6 @@
         background-color: red;
       }
     }
-  }
-  
-  .todo-field-label{
-    padding-top: 21px;
   }
   
   .unmatched-filter-notice{
