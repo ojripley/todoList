@@ -1,6 +1,6 @@
 #nav {
   background-color: #1c4060;
-  height: 6em;
+  height: 4em;
   width: 100vw;
   position: fixed;
   z-index: 2;
@@ -20,22 +20,31 @@
     background-color: grey;
     margin-left: 3%;
   }
-  
+
   #nav-controls{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 2em;
+    padding-bottom: 1em;
+    background-color: #1c4060;
+    margin-top: 1.5em;
+    float: right;
+    width: 28em;
+    height: 14em;
+    border-bottom-left-radius: 80px;
     color: white;
-    margin-left: 2em;
-    margin-right: 2em;
 
     #search{
       display: flex;
+      justify-content: space-between;
       align-items: center;
 
       #search-box-container{
         margin-right: 3em;
         margin-left: 1em;
+        padding-left: 5px;
+        padding-right: 5px;
         background-color: white;
         border-top-left-radius: 15px;
         border-bottom-right-radius: 15px;
@@ -45,32 +54,33 @@
     #filter-toggle{
       display: flex;
       align-items: center;
-    }
-
-    #filter-toggle-options{
-      margin-right: 3em;
-      margin-left: 1em;
-      display: flex;
       justify-content: space-between;
-      background-color: white;
-      border-top-left-radius: 15px;
-      border-bottom-right-radius: 15px;
 
-      #selected{
-        background-color: coral;
-        padding: 10px;
-        border-radius: inherit;
-        color: white;
-      }
-
-      #not-selected{
-        padding: 10px;
-        color: black;
-      }
-
-      .filter-button:hover{
-        cursor: pointer;
-      }
+      #filter-toggle-options{
+        margin-right: 3em;
+        margin-left: 1em;
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+  
+        #selected{
+          background-color: coral;
+          padding: 10px;
+          border-radius: inherit;
+          color: white;
+        }
+  
+        #not-selected{
+          padding: 10px;
+          color: black;
+        }
+  
+        .filter-button:hover{
+          cursor: pointer;
+        }
+      }  
     }
 
     #new-todo-button{
@@ -81,11 +91,13 @@
       border-radius: 5px;
       margin-bottom: none;
       padding: 5px;
+      width: 19%;
     }
 
     #new-todo-button:hover{
       color: white;
       cursor: pointer;
     }
+
   }
 }
