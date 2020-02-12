@@ -17,7 +17,7 @@
       background-color: #1c4060;
       border-radius: 15px;
       box-shadow: 10px 10px 10px grey;
-      padding: 1em;
+      padding: 2em;
       padding-bottom: 0.5em;
       margin: 0.7em;
       width: 40em;
@@ -38,13 +38,13 @@
         background-color: white;
         border-bottom-right-radius: 15px;
         padding-left: 15px;
+        margin-bottom: 2em;
       }
       
       .todo-notes{
         display: flex;
         flex-direction: column;
         background-color: white;
-        margin-top: 10px;
         border-top-left-radius: 15px;
         border-bottom-right-radius: 15px;
   
@@ -75,34 +75,32 @@
           display: flex;
           flex-direction: column-reverse;
           padding-bottom: 10px;
-        }
-  
-        .note{
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          padding-right: 50px;
-          padding-left: 50px;
-  
-          .note-bullet{
-            font-weight: bold;
-          }
 
-          .remove-note-button{
-            border-style: solid;
-            border-width: 2px;
-            border-radius: 5px;
-            border-color: red;
-            padding: 5px;
-          }
-
-          .remove-note-button:hover{
-            cursor: pointer;
-            background-color: red;
-            color: white;
+          .note{
+            display: flex;
+            align-items: center;
+            padding-right: 50px;
+            padding-left: 50px;
+    
+            .note-bullet{
+              font-weight: bold;
+            }
+  
+            .remove-note-button{
+              border-style: solid;
+              border-width: 2px;
+              border-radius: 5px;
+              border-color: red;
+              padding: 5px;
+            }
+  
+            .remove-note-button:hover{
+              cursor: pointer;
+              background-color: red;
+              color: white;
+            }
           }
         }
-  
       }
     }
   
@@ -110,7 +108,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 2px;
+      margin-top: 1em;
   
       .time-picker-container{
         background-color: white;
