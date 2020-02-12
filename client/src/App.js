@@ -12,7 +12,7 @@ function App() {
       id: 1,
       title: 'NorthOne assessment',
       description: 'Write a ToDo list webapp!',
-      due: new Date(),
+      dueDate: new Date(),
       status: 'complete',
       tags: ['programming', 'job hunt'],
       notes: {}
@@ -21,7 +21,7 @@ function App() {
       id: 2,
       title: 'NorthOne assessment demo',
       description: 'Present your NorthOne assessment to Kristen',
-      due: new Date(),
+      dueDate: new Date(),
       status: 'pending',
       tags: ['job hunt'],
       notes: {
@@ -32,7 +32,7 @@ function App() {
       id: 3,
       title: 'Clean kitchen',
       description: 'Don\'t forget to do the dishes!',
-      due: new Date(),
+      dueDate: new Date(),
       status: 'pending',
       tags: ['household'],
       notes: {}
@@ -41,7 +41,7 @@ function App() {
       id: 4,
       title: 'Get groceries',
       description: 'Sobeys has a sale today',
-      due: new Date(),
+      dueDate: new Date(),
       status: 'pending',
       tags: ['household'],
       notes: {
@@ -73,6 +73,7 @@ function App() {
           title={toDos[key].title}
           description={toDos[key].description}
           status={toDos[key].status}
+          dueDate={toDos[key].dueDate}
           tags={toDos[key].tags}
           toDos={toDos}
           setToDos={setToDos}
@@ -87,6 +88,7 @@ function App() {
           title={toDos[key].title}
           description={toDos[key].description}
           status={toDos[key].status}
+          dueDate={toDos[key].dueDate}
           tags={toDos[key].tags}
           toDos={toDos}
           setToDos={setToDos}

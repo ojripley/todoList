@@ -1,7 +1,6 @@
 #app{
   display: flex;
   flex-direction: column;
-  flex-wrap: 1;
   align-items: center;
   overflow: -moz-scrollbars-none;
   margin-right: 30em;
@@ -11,7 +10,7 @@
     flex-direction: column-reverse;
     flex-wrap: 1;
     align-items: center;
-    margin-top: 8em;
+    margin-top: 6em;
 
     .todo{
       background-color: #1c4060;
@@ -167,6 +166,6 @@
 
 @media screen and (min-width: 1600px) {
   #app{
-    margin-right: 10em;
+    margin-right: 20em;
   }
 }
