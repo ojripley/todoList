@@ -19,23 +19,32 @@ export default function ToDo(props) {
   const [status, setStatus] = useState(props.status);
   const [tags] = useState(props.tags);
   const [notes, setNotes] = useState(props.notes || []);
-  const [selectedDate, handleDateChange] = useState(props.due || new Date());
+  const [selectedDate, setSelectedDate] = useState(props.dueDate);
 
   useEffect(() => {
     const tempToDos = props.toDos;
+
+    console.log('something changed');
 
     tempToDos[id] = {
       id: id,
       title: title,
       description: description,
-      due: selectedDate,
+      dueDate: selectedDate,
       status: status,
       tags: tags,
       notes: notes
     };
 
+    console.log(tempToDos[id].dueDate);
+
     props.setToDos({ ...tempToDos });
   }, [title, description, status, tags, id, selectedDate, notes, notes.length]);
+
+  const handleDateChange = date => {
+    console.log(date);
+    setSelectedDate(date);
+  };
 
   const handleDelete = () => {
     const tempToDos = props.toDos;

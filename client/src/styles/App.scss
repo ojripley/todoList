@@ -4,7 +4,7 @@
   flex-wrap: 1;
   align-items: center;
   overflow: -moz-scrollbars-none;
-  margin-right: 30em;
+  margin-right: 0em;
   
   #todo-container{
     display: flex;
@@ -167,6 +167,6 @@
 
 @media screen and (min-width: 1600px) {
   #app{
-    margin-right: 10em;
+    margin-right: 30em;
   }
 }
