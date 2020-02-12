@@ -38,7 +38,6 @@ export default function ToDo(props) {
   }, [title, description, status, tags, id, selectedDate, notes, notes.length]);
 
   const handleDateChange = date => {
-    console.log(date);
     setSelectedDate(date);
   };
 
